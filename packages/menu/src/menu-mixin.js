@@ -27,13 +27,15 @@ export default {
 
       let padding = 20;
       let parent = this.$parent;
+      let count = 1;
 
       if (this.rootMenu.collapse) {
         padding = 20;
       } else {
         while (parent && parent.$options.componentName !== 'ElMenu') {
           if (parent.$options.componentName === 'ElSubmenu') {
-            padding += 20;
+            padding += count === 1 ? 30 : 15;
+            count += 1;
           }
           parent = parent.$parent;
         }
